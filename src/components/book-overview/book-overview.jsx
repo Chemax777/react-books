@@ -120,7 +120,10 @@ function BookOverview() {
                         >Description</Typography>
                         <Box>
                             <Typography variant="body2" component="p" color="text.secondary">
-                                {removeHTMLTags(curBook.volumeInfo.description)}
+                                {curBook.volumeInfo.description ? (
+                                    removeHTMLTags(curBook.volumeInfo.description)
+                                ) : "No description :("
+                                }
                             </Typography>
                         </Box>
                     </Grid>
