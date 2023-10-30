@@ -4,7 +4,7 @@ import { fetchBooks } from '../../store/bookSlice' //методы взаимод
 import { nanoid } from "nanoid"
 import { apiKey } from '../../methods'
 
-// import BookAlert from "./book-alert"
+
 import FilterBooks from "./filter-books"
 import BookCard from "./book-card"
 import Loader from "../loader"
@@ -21,8 +21,7 @@ function BookList() {
 
     const [maxPage, setMaxPage] = useState(1)
     const [currentPage, setCurrentPage] = useState(1)
-    // const [alertVisible, setAlertVisible] = useState(false)
-    // const [isSuccess, setIsSuccess] = useState(true)
+
 
     useEffect(() => {
         allBooks.totalItems > 1000 ? setMaxPage(80) : setMaxPage(Math.ceil(allBooks.totalItems / 12))
@@ -34,8 +33,6 @@ function BookList() {
             fetchBooks(`https://www.googleapis.com/books/v1/volumes?q=${filterTitle}+inauthor:${filterAuthor}&startIndex=${startIndex}&maxResults=12&orderBy=${filterOrder}&key=${apiKey}`)
         )
     }, [currentPage, filterAuthor, filterTitle, filterOrder])
-
-    // const addBooks = () => dispatch(addBook()) // вызов action
 
     const handleChangePage = (event, value) => {
         setCurrentPage(value);
@@ -58,7 +55,6 @@ function BookList() {
                                 key={keyId}
                                 book={item}
                                 addBook={true}
-                                // onAlert={setAlertVisible}
                             />
                         })
                     }
@@ -70,7 +66,6 @@ function BookList() {
                         color="primary" />
                 </Grid>
                 {error && <h2>{error}</h2>}
-                {/* {alertVisible && <BookAlert isSuccess={true}></BookAlert>} */}
             </Box>
 
         </>

@@ -17,13 +17,11 @@ import { nanoid } from "nanoid";
 import { noImage } from "../../../methods";
 import { useDispatch, useSelector } from "react-redux";
 
-export function BookCard({ book, addBook, delBook, onAlert }) {
+export function BookCard({ book }) {
     const { id } = book
     const allBooks = useSelector(state => state.books.allBooks)
     const favoriteBooks = useSelector(state => state.books.favoriteBooks)
     const [isFavorite, setIsFavorite] = useState(false)
-
-    // const { title, authors, imageLinks } = book.volumeInfo
 
     const dispatch = useDispatch();
 
@@ -31,19 +29,11 @@ export function BookCard({ book, addBook, delBook, onAlert }) {
         const favoriteBook = books.filter(book => book.id === bookId)
         dispatch(addToFavorite(favoriteBook[0]))
         setIsFavorite(prevState => !prevState)
-        // onAlert(true)
-        // setInterval(() => {
-        //     onAlert(false)
-        // }, 2000)
     }
 
     const delBookFromFavorite = (bookId) => {
         dispatch(delFromFavorite(bookId))
         setIsFavorite(prevState => !prevState)
-        // onAlert(true)
-        // setInterval(() => {
-        //     onAlert(false)
-        // }, 2000)
     }
 
     useEffect(() => {
@@ -96,14 +86,6 @@ export function BookCard({ book, addBook, delBook, onAlert }) {
                             >Add to favorite</Button>
                         )
                     }
-                    {/* {addBook && <Button variant='contained' color='success' size="small"
-                        onClick={() => { addBookToFavorite(id, allBooks.items) }}
-                        sx={{ mb: 1 }}
-                    >Add to favorite</Button>}
-                    {delBook && <Button variant='contained' color='error' size="small"
-                        onClick={() => { delBookFromFavorite(id) }}
-                        sx={{ mb: 1 }}
-                    >Delete from favorite</Button>} */}
                     <Link to={`/overview/${id}`}>
                         <Button variant='contained' size="small">Overview</Button>
                     </Link>

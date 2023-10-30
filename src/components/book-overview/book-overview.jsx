@@ -22,19 +22,11 @@ function BookOverview() {
     const addBookToFavorite = (bookToAdd) => {
         dispatch(addToFavorite(bookToAdd))
         setIsFavorite(prevState => !prevState)
-        // onAlert(true)
-        // setInterval(() => {
-        //     onAlert(false)
-        // }, 2000)
     }
 
     const delBookFromFavorite = (bookId) => {
         dispatch(delFromFavorite(bookId))
         setIsFavorite(prevState => !prevState)
-        // onAlert(true)
-        // setInterval(() => {
-        //     onAlert(false)
-        // }, 2000)
     }
 
     useEffect(() => {
@@ -120,9 +112,12 @@ function BookOverview() {
                         >Description</Typography>
                         <Box>
                             <Typography variant="body2" component="p" color="text.secondary">
-                                {curBook.volumeInfo.description ? (
-                                    removeHTMLTags(curBook.volumeInfo.description)
-                                ) : "No description :("
+                                {
+                                    curBook.volumeInfo.description ? (
+                                        removeHTMLTags(curBook.volumeInfo.description)
+                                    ) : (
+                                        "No description :("
+                                    )
                                 }
                             </Typography>
                         </Box>
