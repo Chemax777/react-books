@@ -7,9 +7,6 @@ function Header() {
             <Container component="header" maxWidth="lg">
                 <NavMenu />
             </Container>
-            {/* <div>
-                <NavMenu />
-            </div> */}
         </>
     )
 }

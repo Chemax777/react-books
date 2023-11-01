@@ -41,7 +41,7 @@ function NavMenu(props) {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.text} disablePadding>
-                        <Link to={item.path}>
+                        <Link to={item.path} style={{color: 'white', textDecoration: 'none'}}>
                             <ListItemButton sx={{ textAlign: 'center' }}>
                                 <ListItemText primary={item.text} />
                             </ListItemButton>
