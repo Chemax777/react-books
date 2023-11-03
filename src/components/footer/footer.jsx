@@ -30,8 +30,9 @@ function Footer() {
                     </Box>
                     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <Typography color='inherit'>Powered by &nbsp;
-                            <a href="https://www.google.com/"
+                            <a href="https://www.linkedin.com/in/maxim-gres-430b3a24b"
                                 target="_blank"
+                                rel="noreferrer noopener"
                             >Gres Maxim</a></Typography>
                     </Box>
                 </Container>
