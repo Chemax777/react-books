@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import SearchBooksAuthor from './search-books-author';
 import SearchBooksCategory from './search-books-title';
 import FilterBooksOrder from './filter-books-order';
+import FilterBooksCategory from './filter-books-category';
 
 function FilterBooks() {
     return (
@@ -22,7 +23,7 @@ function FilterBooks() {
             </AccordionSummary>
             <AccordionDetails>
                 <FormControl fullWidth>
-                    {/* <FilterBooksYear /> */}
+                    <FilterBooksCategory />
                     <FilterBooksOrder />
                     <SearchBooksAuthor />
                     <SearchBooksCategory />

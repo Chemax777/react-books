@@ -29,7 +29,7 @@ const bookSlice = createSlice({
             author: '',
             title: '',
             order: 'newest',
-            year: '',
+            category: '',
         },
         status: null,
         error: null,
@@ -46,6 +46,9 @@ const bookSlice = createSlice({
         },
         filterTitle(state, action) {
             state.filter.title = action.payload
+        },
+        filterCategory(state, action) {
+            state.filter.category = action.payload
         },
         setOrder(state, action) {
             state.filter.order = action.payload
@@ -80,6 +83,6 @@ const bookSlice = createSlice({
     },
 });
 
-export const { addBook, addToFavorite, delFromFavorite, filterAuthor, filterTitle, setOrder} = bookSlice.actions;
+export const { addBook, addToFavorite, delFromFavorite, filterAuthor, filterTitle, filterCategory, setOrder } = bookSlice.actions;
 export default bookSlice.reducer;
 

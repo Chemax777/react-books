@@ -9,6 +9,7 @@ import FilterBooks from "./filter-books"
 import BookCard from "./book-card"
 import Loader from "../loader"
 import { Box, Grid, Pagination } from '@mui/material'
+import FilterBooksOrder from "./filter-books/filter-books-order"
 
 function BookList() {
     const allBooks = useSelector(state => state.books.allBooks) // получение книг из store
@@ -18,6 +19,7 @@ function BookList() {
     const filterAuthor = useSelector(state => state.books.filter.author)
     const filterTitle = useSelector(state => state.books.filter.title)
     const filterOrder = useSelector(state => state.books.filter.order)
+    const filterCategory = useSelector(state => state.books.filter.category)
 
     const [maxPage, setMaxPage] = useState(1)
     const [currentPage, setCurrentPage] = useState(1)
@@ -30,9 +32,9 @@ function BookList() {
     useEffect(() => {
         const startIndex = currentPage
         dispatch(
-            fetchBooks(`https://www.googleapis.com/books/v1/volumes?q=${filterTitle}+inauthor:${filterAuthor}&startIndex=${startIndex}&maxResults=12&orderBy=${filterOrder}&key=${apiKey}`)
+            fetchBooks(`https://www.googleapis.com/books/v1/volumes?q=${filterTitle}+inauthor:${filterAuthor}+subject:${filterCategory}&filter:ebooks&startIndex=${startIndex}&maxResults=12&orderBy=${filterOrder}&key=${apiKey}`)
         )
-    }, [currentPage, filterAuthor, filterTitle, filterOrder])
+    }, [currentPage, filterAuthor, filterTitle, filterOrder, filterCategory])
 
     const handleChangePage = (event, value) => {
         setCurrentPage(value);
