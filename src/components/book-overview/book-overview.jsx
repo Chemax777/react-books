@@ -6,7 +6,7 @@ import Loader from "../loader"
 import { nanoid } from "nanoid"
 import { removeHTMLTags, noImage } from "../../methods"
 
-import { Grid, Box, Typography, Button } from "@mui/material"
+import { Grid, Box, Typography, Button, Link } from "@mui/material"
 
 import { useParams } from "react-router"
 
@@ -89,6 +89,17 @@ function BookOverview() {
                                                 component="span"
                                             >{category}/</Typography>
                                         })}
+                                </Typography>
+                                <Typography variant="h6" component="p">
+                                    <Link
+                                        href={curBook.volumeInfo.previewLink}
+                                        target='_blank'
+                                        rel="noopener"
+                                        color="inherit"
+                                        underline="hover"
+                                    >
+                                        {"See on Google Books"}
+                                    </Link>
                                 </Typography>
                             </Typography>
                             {
